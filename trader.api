@@ -1,0 +1,14 @@
+type TradingViewHookRequest {
+	Name string `json:"name,options=you|me"`
+}
+
+type TradingViewHookResponse {
+	Message string `json:"message"`
+}
+
+service trader-api {
+	@handler TradingviewHookHandler
+	post /hookTrading(TradingViewHookRequest) returns (TradingViewHookResponse)
+	@handler TraderHandlerGet
+	get /test(TradingViewHookRequest) returns  (TradingViewHookResponse)
+}
