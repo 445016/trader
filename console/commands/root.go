@@ -3,6 +3,8 @@ package commands
 import (
 	"github.com/spf13/cobra"
 	"trader/console/commands/market"
+	"trader/console/commands/trade"
+
 )
 
 const (
@@ -30,6 +32,7 @@ func NewCommand() *cobra.Command {
 		}
 	}
 	command.AddCommand(market.NewMarketCommand())
+	command.AddCommand(trade.NewTradeCommand())
 	command.PersistentFlags().StringVar(&logLevel, "loglevel", "info", "Set the logging level. One of: debug|info|warn|error")
 	command.PersistentFlags().IntVar(&glogLevel, "gloglevel", 0, "Set the glog logging level")
 	command.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "Enabled verbose logging, i.e. --loglevel debug")
